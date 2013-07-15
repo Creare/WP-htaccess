@@ -72,6 +72,7 @@ RewriteRule . /index.php [L]
   Options +FollowSymlinks 
   	
   ### Redirect from http://domain to http://www.domain
+  ### If you wish to redirect to a https:// simply substitute http: with https:
   RewriteCond %{HTTP_HOST} !^www\..+$ [NC]
   RewriteRule ^ http://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
   
