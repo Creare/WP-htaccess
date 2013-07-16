@@ -1,6 +1,8 @@
-############################################
-# Creare's Wordpress .htaccess Boilerplate #
-############################################
+###########################
+# WP htaccess Boilerplate #
+###########################
+
+### https://github.com/Creare/WP-htaccess/
 
 ############
 # Security #
