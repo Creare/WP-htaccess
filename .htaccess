@@ -47,7 +47,7 @@ RewriteRule .* - [F]
 # Default Wordpress Settings #
 ##############################
 
-# Adjust RewriteBase path (line 53 & 63) if not on the root
+# Adjust RewriteBase path (line 55 & 65) if not on the root
 
 # BEGIN WordPress
 <IfModule mod_rewrite.c>
