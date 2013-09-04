@@ -10,8 +10,8 @@
 
 ### Prevent wp-config.php from being loaded:
 <files wp-config.php>
-  	order allow,deny
-  	deny from all
+    order allow,deny
+    deny from all
 </files>
 
 ### Prevent directory browsing
@@ -19,8 +19,8 @@ Options -Indexes
 
 ### Prevent this .htaccess from being accessed:
 <files .htaccess>
-  	order allow,deny
-  	deny from all
+    order allow,deny
+    deny from all
 </files>
 
 ### Disable HTTP Trace
@@ -47,8 +47,6 @@ RewriteRule .* - [F]
 # Default Wordpress Settings #
 ##############################
 
-# Adjust RewriteBase path (line 55 & 65) if not on the root
-
 # BEGIN WordPress
 <IfModule mod_rewrite.c>
   RewriteEngine On
@@ -72,9 +70,11 @@ RewriteRule .* - [F]
 # Additional Rewrite Settings #
 ###############################
 
+# Option 1
+# http://domain > http://www.domain
+
 <IfModule mod_rewrite.c>
-    Options +FollowSymlinks 
-    ### Redirect from http://domain to http://www.domain
+    # Options +FollowSymlinks #Not supported by some hosting
     ### If you wish to redirect to a https:// simply substitute http: with https:
     RewriteCond %{HTTP_HOST} !^www\..+$ [NC]
     RewriteRule ^ http://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
@@ -82,6 +82,19 @@ RewriteRule .* - [F]
     RewriteCond %{THE_REQUEST} ^.*/index.php  
     RewriteRule ^(.*)index.php$ http://www.%{HTTP_HOST}%{REQUEST_URI}$1 [R=301,L] 
 </IfModule>
+
+# Option 2
+# http://www.domain > http://domain
+
+#<IfModule mod_rewrite.c>
+    # Options +FollowSymlinks #Not supported by some hosting
+    ### If you wish to redirect to a https:// simply substitute http: with https:
+    #RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+    #RewriteRule ^ http://%1%{REQUEST_URI} [R=301,L]
+    ### Redirect away from /index.php to clear path
+    #RewriteCond %{THE_REQUEST} ^.*/index.php  
+    #RewriteRule ^(.*)index.php$ http://%{HTTP_HOST}%{REQUEST_URI}$1 [R=301,L] 
+#</IfModule>
 
 
 #######################
