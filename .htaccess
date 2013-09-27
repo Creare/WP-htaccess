@@ -119,8 +119,9 @@ RewriteRule .* - [F]
 </ifModule>  
 # END Expire headers 
 
-# BEGIN Cache-Control Headers  
+
 <ifModule mod_headers.c>  
+    # BEGIN Cache-Control Headers  
     <filesMatch "\.(ico|jpe?g|png|gif|swf)$">  
         Header set Cache-Control "public"  
     </filesMatch>  
@@ -132,9 +133,13 @@ RewriteRule .* - [F]
     </filesMatch>  
     <filesMatch "\.(x?html?|php)$">  
         Header set Cache-Control "private, must-revalidate"  
-    </filesMatch>  
+    </filesMatch>
+    # END Cache-Control Headers  
+
+	# Stops website being sourced via iFrame
+	Header set X-Frame-Options DENY
 </ifModule>  
-# END Cache-Control Headers  
+
 
 <IfModule mod_deflate.c> 
     AddOutputFilterByType DEFLATE text/xhtml text/html text/plain text/xml text/javascript application/x-javascript text/css 
