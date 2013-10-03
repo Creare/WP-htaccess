@@ -15,7 +15,9 @@
 </files>
 
 ### Prevent directory browsing
-Options -Indexes
+<IfModule mod_autoindex.c>
+  Options -Indexes
+</IfModule>
 
 ### Prevent this .htaccess from being accessed:
 <files .htaccess>
