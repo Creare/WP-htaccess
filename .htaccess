@@ -25,6 +25,11 @@
     deny from all
 </files>
 
+### Prevent WordPress' readme.html from being accessed (as it contains the version number)
+<files readme.html>
+Deny from all
+</files>
+
 ### Disable HTTP Trace
 RewriteEngine On
 RewriteCond %{REQUEST_METHOD} ^TRACE
