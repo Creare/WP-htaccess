@@ -8,6 +8,9 @@
 # Security #
 ############
 
+### Recognise SSL when set at a load balancer/proxy level (for CloudFlare)
+SetEnvIf X-Forwarded-Proto https HTTPS=on
+
 ### Prevent wp-config.php from being loaded:
 <files wp-config.php>
     order allow,deny
