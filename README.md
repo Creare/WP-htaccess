@@ -7,6 +7,6 @@ WP-htaccess is an .htaccess boilerplate for Wordpress. All commands within the f
 Curators
 ========
 
-Brought to you by the development team at [Creare](http://www.creare.co.uk/) including [@jamesbavington](https://twitter.com/jamesbavington), [@kent_robert](https://twitter.com/kent_robert), [@daniel_c_long](https://twitter.com/daniel_c_long), [@adampmoss](https://twitter.com/adampmoss) & ~~[@TomFoyster](https://twitter.com/TomFoyster)~~ (now [@IcyApril](https://twitter.com/IcyApril)!).
+Brought to you by the development team at [Creare](http://www.creare.co.uk/) including [@jamesbavington](https://twitter.com/jamesbavington), [@kent_robert](https://twitter.com/kent_robert), [@daniel_c_long](https://twitter.com/daniel_c_long), [@adampmoss](https://twitter.com/adampmoss),  ~~[@TomFoyster](https://twitter.com/TomFoyster)~~ & [@IcyApril](https://twitter.com/IcyApril).
 
 
