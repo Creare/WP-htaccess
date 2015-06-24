@@ -53,29 +53,6 @@ RewriteRule .* - [F]
 </FilesMatch>
 
 
-##############################
-# Default Wordpress Settings #
-##############################
-
-# BEGIN WordPress
-<IfModule mod_rewrite.c>
-  RewriteEngine On
-  RewriteBase /
-  ### SQL Injection Protection
-  RewriteCond %{QUERY_STRING} (\<|%3C).*script.*(\>|%3E) [NC,OR]
-  RewriteCond %{QUERY_STRING} GLOBALS(=|\[|\%[0-9A-Z]{0,2}) [OR]
-  RewriteCond %{QUERY_STRING} _REQUEST(=|\[|\%[0-9A-Z]{0,2})
-  RewriteRule ^(.*)$ index.php [F,L]
-  ### End SQL Injection Protection
-  RewriteRule ^index\.php$ - [L]
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule . /index.php [L]
-</IfModule>
-
-# END WordPress
-
-
 ###############################
 # Additional Rewrite Settings #
 ###############################
@@ -106,6 +83,28 @@ RewriteRule .* - [F]
     #RewriteRule ^(.*)index.php$ http://%{HTTP_HOST}%{REQUEST_URI}$1 [R=301,L] 
 #</IfModule>
 
+
+##############################
+# Default Wordpress Settings #
+##############################
+
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  ### SQL Injection Protection
+  RewriteCond %{QUERY_STRING} (\<|%3C).*script.*(\>|%3E) [NC,OR]
+  RewriteCond %{QUERY_STRING} GLOBALS(=|\[|\%[0-9A-Z]{0,2}) [OR]
+  RewriteCond %{QUERY_STRING} _REQUEST(=|\[|\%[0-9A-Z]{0,2})
+  RewriteRule ^(.*)$ index.php [F,L]
+  ### End SQL Injection Protection
+  RewriteRule ^index\.php$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress
 
 #######################
 # Speed & Compression #
