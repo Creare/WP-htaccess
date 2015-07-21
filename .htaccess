@@ -17,6 +17,12 @@ SetEnvIf X-Forwarded-Proto https HTTPS=on
     deny from all
 </files>
 
+### Prevent sftp-config.json from being loaded:
+<files sftp-config.json>
+    order allow,deny
+    deny from all
+</files>
+
 ### Prevent directory browsing
 <IfModule mod_autoindex.c>
   Options -Indexes
