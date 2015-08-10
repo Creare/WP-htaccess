@@ -23,6 +23,24 @@ SetEnvIf X-Forwarded-Proto https HTTPS=on
     deny from all
 </files>
 
+### Protect .htaccess
+<Files ~ "^.*\.([Hh][Tt][Aa])">
+    order allow,deny
+    deny from all
+    satisfy all
+</Files>
+
+### Secure wp-includes
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  RewriteRule ^wp-admin/includes/ - [F,L]
+  RewriteRule !^wp-includes/ - [S=3]
+  RewriteRule ^wp-includes/[^/]+\.php$ - [F,L]
+  RewriteRule ^wp-includes/js/tinymce/langs/.+\.php - [F,L]
+  RewriteRule ^wp-includes/theme-compat/ - [F,L]
+</IfModule>
+
 ### Prevent directory browsing
 <IfModule mod_autoindex.c>
   Options -Indexes
